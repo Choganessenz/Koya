@@ -35,13 +35,9 @@
         </div>
     </nav>
 
+
     <section class="hero" id="home">
-        <!-- Optional: Video-Background statt Bild/Pattern -->
-        <!--
-        <video class="hero-video" autoplay muted loop playsinline poster="material/koya-gerichte-impressionen-02.jpg">
-          <source src="material/hero-bg.mp4" type="video/mp4">
-        </video>
-        -->
+       
       
         <div class="hero-inner">
           <div class="hero-content">
@@ -61,7 +57,6 @@
             </div>
           </div>
       
-          <!-- Food-Collage rechts (versteckt sich automatisch auf Mobile) -->
           <aside class="hero-aside" aria-hidden="true">
             <div class="dish-card card-1">
               <img src="material/koya-gerichte-impressionen-02.jpg" alt="">
@@ -151,14 +146,11 @@
         <h2 class="section-title">Speisekarte</h2>
 
 
-<!-- SPEISEKARTE (mit Allergenen/Badges) -->
 <div class="asian-card menu-full" id="speisekarte-komplett">
     <h2 class="sub-accent-gradient">Unsere komplette Speisekarte</h2>
   
-    <!-- Masonry aktiviert, damit unten keine großen Lücken entstehen -->
     <div class="menu-columns masonry">
   
-      <!-- VORSPEISEN -->
       <div class="menu-col" id="vorspeisen">
         <h4>Vorspeisen | starter</h4>
         <ul class="menu-lines">
@@ -551,7 +543,7 @@
     </div>
   <br>
   <br>
-    <!-- Legende/Hinweis (NEU, schicker) -->
+  
 <div class="menu-legend fancy">
     <ul class="legend-list">
       <li><span class="badge badge-vegan" aria-hidden="true">🌱</span><span>vegan</span></li>
@@ -907,7 +899,7 @@
     </footer>
 
     <script>
-        // Cherry Blossom Animation
+        
         function createCherryBlossoms() {
             const cherryLayer = document.querySelector('.cherry-layer');
             const cherryCount = 15;
@@ -924,7 +916,7 @@
             }, 2000);
         }
 
-        // Navbar scroll effect
+        
         window.addEventListener('scroll', () => {
             const navbar = document.getElementById('navbar');
             if (window.scrollY > 100) {
@@ -934,7 +926,7 @@
             }
         });
 
-        // Intersection Observer for fade-in animations
+        
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -949,7 +941,7 @@
             });
         }, observerOptions);
 
-        // Observe all cards and menu items
+        
         document.querySelectorAll('.asian-card, .menu-item, .gallery-item, .contact-card').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px)';
@@ -957,17 +949,17 @@
             observer.observe(el);
         });
 
-        // Phone number click tracking
+        
         document.querySelectorAll('a[href^="tel:"]').forEach(tel => {
             tel.addEventListener('click', () => {
                 console.log('Phone call initiated');
             });
         });
 
-        // Initialize cherry blossoms
+        
         createCherryBlossoms();
 
-        // Smooth scroll for anchor links
+
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -981,10 +973,10 @@
             });
         });
 
-        // Add hover sound effect simulation
+        
         document.querySelectorAll('.menu-item, .contact-card, .gallery-item').forEach(item => {
             item.addEventListener('mouseenter', () => {
-                // Visual feedback for interaction
+        
                 item.style.transform += ' scale(1.02)';
             });
             item.addEventListener('mouseleave', () => {
@@ -995,17 +987,17 @@
 
 <script>
     (() => {
-      // ---------- Öffnungszeiten & Slots ----------
+     
       const slotsByDay = {
-        1: [[11.5,15],[17,21]], // Mo: 11:30–15:00, 17:00–21:00
-        2: [[11.5,15],[17,21]], // Di
-        3: [],                  // Mi Ruhetag
-        4: [[11.5,15],[17,21]], // Do
-        5: [[11.5,15],[17,21]], // Fr
-        6: [[17,21]],           // Sa
-        0: [[17,21]],           // So
+        1: [[11.5,15],[17,21]], 
+        2: [[11.5,15],[17,21]], 
+        3: [],                  
+        4: [[11.5,15],[17,21]],
+        5: [[11.5,15],[17,21]], 
+        6: [[17,21]],           
+        0: [[17,21]],           
       };
-      const stepMinutes = 30; // 30-Minuten-Slots
+      const stepMinutes = 30; 
       const tables = [
         {id:'T1', name:'Tisch 1', seats:2},
         {id:'T2', name:'Tisch 2', seats:2},
@@ -1019,10 +1011,10 @@
         {id:'T10', name:'Tisch 10', seats:6},
       ];
     
-      // ---------- Helpers ----------
+      
       const $ = s => document.querySelector(s);
       const fmt = n => String(n).padStart(2,'0');
-      const toKey = (date, time) => `${date}|${time}`; // key for localStorage bucket
+      const toKey = (date, time) => `${date}|${time}`; 
       const store = {
         get(date,time){
           const raw = localStorage.getItem(toKey(date,time));
@@ -1033,13 +1025,13 @@
         }
       };
     
-      // ---------- UI Elements ----------
+      
       const grid = $('#tableGrid');
       const selTime = $('#resTime');
       const inpDate = $('#resDate');
       const frm = $('#resForm');
     
-      // default Datum = heute
+      
       const today = new Date();
       inpDate.value = today.toISOString().slice(0,10);
     
@@ -1071,7 +1063,7 @@
     
       function renderTables(dateStr, timeStr){
         grid.innerHTML = '';
-        const reservations = store.get(dateStr, timeStr); // {tableId: {name,phone,people}}
+        const reservations = store.get(dateStr, timeStr); 
         tables.forEach(t=>{
           const booked = Boolean(reservations[t.id]);
           const card = document.createElement('button');
@@ -1083,7 +1075,7 @@
             <div class="table-meta">${t.seats} Plätze</div>
             <span class="table-status">${booked?'reserviert':'frei'}</span>`;
           card.onclick = () => {
-            // Select in form (visuell durch Fokus)
+            
             document.querySelectorAll('.table-card').forEach(c=>c.classList.remove('selected'));
             card.classList.add('selected');
             frm.dataset.selectedTable = t.id;
@@ -1092,7 +1084,7 @@
         });
       }
     
-      // Initialisieren
+      
       buildSlots(inpDate.value);
       selTime.selectedIndex = Math.max(0, selTime.options.length ? 0 : -1);
       renderTables(inpDate.value, selTime.value);
@@ -1104,7 +1096,7 @@
       });
       selTime.addEventListener('change', () => renderTables(inpDate.value, selTime.value));
     
-      // ---------- Reservieren (Demo: localStorage) ----------
+      
       frm.addEventListener('submit', (e)=>{
         e.preventDefault();
         const tableId = frm.dataset.selectedTable;
