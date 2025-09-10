@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KOYA - Authentische Asiatische Küche</title>
+    <link rel="stylesheet" href="index.styles.css">
+</head>
+<body>
+    <div class="bg-container"></div>
+    <div class="bamboo-overlay"></div>
+    <div class="cherry-layer" aria-hidden="true"></div>
+
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo" aria-label="KOYA Startseite">
+                <img src="material/k_logo_test.png" alt="" class="logo-img">
+              </a>              
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">Über uns</a></li>
+                <li><a href="#menu">Speisen</a></li>
+                <li><a href="#gallery">Galerie</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+            </ul>
+            <a href="tel:+4952546622880"
+                class="nav-call"
+                aria-label="Jetzt bei KOYA anrufen"
+                title="Anrufen: +49 5254 6622 880">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.05-.24c1.12.37 2.33.57 3.54.57a1 1 0 011 1v3.5a1 1 0 01-1 1C10.4 21 3 13.6 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.21.2 2.42.57 3.54a1 1 0 01-.24 1.05l-2.2 2.2z" fill="currentColor"/>
+                </svg>
+                <span class="label">Anrufen</span>
+                </a>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <!-- Optional: Video-Background statt Bild/Pattern -->
+        <!--
+        <video class="hero-video" autoplay muted loop playsinline poster="material/koya-gerichte-impressionen-02.jpg">
+          <source src="material/hero-bg.mp4" type="video/mp4">
+        </video>
+        -->
+      
+        <div class="hero-inner">
+          <div class="hero-content">
+            <div class="japanese-subtitle">Authentische Asiatische Küche</div>
+            <h1>KOYA</h1>
+            <p class="subtitle">Authentische asiatische Küche • Seit über 20 Jahren • Familiäre Tradition</p>
+      
+            <div class="hero-badges">
+              <span class="pill pill-soft" id="openBadge">Öffnungszeiten laden…</span>
+              <span class="pill">📍 Schloss Neuhaus</span>
+              <a class="pill pill-link" href="tel:+4952546622880">📞 05254&nbsp;6622&nbsp;880</a>
+            </div>
+      
+            <div class="cta-container">
+              <a href="#menu" class="cta-button">Speisekarte</a>
+              <a href="tel:+4952546622880" class="cta-button cta-secondary">Bestellen</a>
+            </div>
+          </div>
+      
+          <!-- Food-Collage rechts (versteckt sich automatisch auf Mobile) -->
+          <aside class="hero-aside" aria-hidden="true">
+            <div class="dish-card card-1">
+              <img src="material/koya-gerichte-impressionen-02.jpg" alt="">
+            </div>
+            <div class="dish-card card-2">
+              <img src="material/koya-gerichte-impressionen-03.jpg" alt="">
+            </div>
+            <div class="dish-card card-3">
+              <img src="material/koya-gerichte-impressionen-05.jpg" alt="">
+            </div>
+          </aside>
+        </div>
+      
+        <button class="scroll-indicator" onclick="document.getElementById('menu').scrollIntoView({behavior:'smooth'})" aria-label="Zur Speisekarte scrollen">
+          ↓
+        </button>
+      </section>
+      
+
+    <section class="section" id="about">
+        <h2 class="section-title">Über KOYA</h2>
+        <div class="asian-card">
+            <br>
+            <h3 class="sub-accent-gradient">KOYA – Asiatische Speisen in Paderborn seit über 20 Jahren!</h3>
+            <br>
+            <p>KOYA steht für asiatische Küche mit Persönlichkeit – frisch, ehrlich und voller Geschmack. Als Familienbetrieb bringen wir seit über zwei Jahrzehnten vietnamesische, japanische und thailändische Einflüsse auf den Teller. </p>
+            <br>
+            <p>Unsere Rezepte stammen aus eigener Hand, viele davon sind über Generationen weitergegeben worden. Dabei legen wir Wert auf große Portionen, faire Preise und ein Ambiente, in dem sich jeder willkommen fühlt.</p>
+            <br>
+            <p>Besonders stolz sind wir auf unsere Saucen, dessen Rezepte unser Geheimnis bleiben. Kommen Sie vorbei und überzeugen sich selbst von der Qualität und vom Geschmack unserer Speisen!</p>
+        </div>
+        
+        <div class="asian-card">
+            <h3 class="sub-accent-gradient">Unsere kulinarischen Höhepunkte</h3>
+            <br>
+            <p style="margin-bottom: 30px;">Entdecken Sie die Vielfalt Asiens auf Ihrem Teller. Jede Spezialität wird täglich frisch zubereitet:</p>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <h3>Ramen & Udon</h3>
+                    <p>Authentische japanische Nudelsuppen mit hausgemachter Brühe und frischen Zutaten. Unsere Ramen-Brühe köchelt stundenlang für den perfekten Geschmack.</p>
+                </div>
+                <div class="menu-item">
+                    <h3>Vietnamesische Pho</h3>
+                    <p>Aromatische Nudelsuppe nach traditionellem Familienrezept. Mit frischen Kräutern, zartem Fleisch und der geheimnisvollen Gewürzmischung unserer Familie.</p>
+                </div>
+                <div class="menu-item">
+                    <h3>Thai Curry</h3>
+                    <p>Würzige Currys mit Kokosmilch und exotischen Gewürzen. Von mild bis feurig - für jeden Geschmack das perfekte Curry-Erlebnis.</p>
+                </div>
+                <div class="menu-item">
+                    <h3>Wok-Spezialitäten</h3>
+                    <p>Frisch gebratene Gerichte mit knusprigem Gemüse aus dem Wok. Bei extremer Hitze zubereitet für den authentischen "Wok-Hei" Geschmack.</p>
+                </div>
+                <div class="menu-item">
+                    <h3>Gyoza</h3>
+                    <p>Handgefaltete Teigtaschen mit verschiedenen Füllungen. Nach alter Tradition geformt und gedämpft oder gebraten serviert.</p>
+                </div>
+                <div class="menu-item">
+                    <h3>Gebratene Nudeln</h3>
+                    <p>m Wok auf hoher Hitze geschwenkte Ei-Nudeln mit knackigem Gemüse und unserer hausgemachten Wok-Soße – optional mit Gemüse, Huhn, Rind, Garnelen oder knuspriger Ente.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="asian-card">
+            <h3 class="sub-accent-gradient">Qualität & Frische</h3>
+            <br>
+            <p>Wir arbeiten ausschließlich mit frischen, hochwertigen Zutaten von ausgewählten Lieferanten. Unser Gemüse wird täglich geliefert, das Fleisch stammt von regionalen Metzgern, und unsere Gewürze importieren wir direkt aus Asien für den authentischen Geschmack.</p>
+            <br>
+            <p><strong>Besonders stolz sind wir auf:</strong> Vegane und vegetarische Optionen • Glutenfreie Gerichte auf Anfrage • Frische Kräuter aus eigenem Anbau • Nachhaltige Verpackungen für Takeaway</p>
+        </div>
+
+        <div class="asian-card">
+            <h3 class="sub-accent-gradient">Hausgemachte KOYA Soßen als Familientradition</h3>
+            <br>
+            <p>KOYA steht für asiatische Küche mit Persönlichkeit – frisch, ehrlich und voller Geschmack.</p>
+            <br>
+            <p>Als Familienbetrieb bringen wir seit über zwei Jahrzehnten vietnamesische, japanische und thailändische Einflüsse auf den Teller. </p>
+            <br>
+            <p>Unsere Rezepte stammen aus eigener Hand, viele davon sind über Generationen weitergegeben worden. Dabei legen wir Wert auf große Portionen, faire Preise und ein Ambiente, in dem sich jeder willkommen fühlt.</p>
+            <br>
+            <p>Besonders stolz sind wir auf unsere Saucen, dessen Rezepte unser Geheimnis bleiben. Kommen Sie vorbei und überzeugen sich selbst von der Qualität und vom Geschmack unserer Speisen!</p>
+        </div>
+    </section>
+
+    <section class="section" id="menu">
+        <h2 class="section-title">Speisekarte</h2>
+
+
+<!-- SPEISEKARTE (mit Allergenen/Badges) -->
+<div class="asian-card menu-full" id="speisekarte-komplett">
+    <h2 class="sub-accent-gradient">Unsere komplette Speisekarte</h2>
+  
+    <!-- Masonry aktiviert, damit unten keine großen Lücken entstehen -->
+    <div class="menu-columns masonry">
+  
+      <!-- VORSPEISEN -->
+      <div class="menu-col" id="vorspeisen">
+        <h4>Vorspeisen | starter</h4>
+        <ul class="menu-lines">
+          <li>
+            <span>Hühnersuppe
+              <span class="badges">
+                <sup class="allergen">8</sup>
+              </span>
+            </span>
+            <span class="price">7,00 €</span>
+            <span class="desc">Kokosmilch, Bambusstreifen, Champignons, Koriander, Zitronenblätter</span>
+          </li>
+  
+          <li>
+            <span>Wantan Suppe
+              <span class="badges"><sup class="allergen">A</sup></span>
+            </span>
+            <span class="price">7,00 €</span>
+            <span class="desc">Hühnerfleisch, Shrimps</span>
+          </li>
+  
+          <li>
+            <span>Koya Frühlingsrollen
+              <span class="badges"><sup class="allergen">A</sup></span>
+            </span>
+            <span class="price">5,00 €</span>
+            <span class="desc">Hühnerfleisch, Gemüse, mit Chili-Soße • auch vegetarisch erhältlich</span>
+          </li>
+  
+          <li>
+            <span>Edamame
+              <span class="badges">
+                <span class="badge badge-vegan" title="vegan" aria-label="vegan">🌱</span>
+              </span>
+            </span>
+            <span class="price">5,00 €</span>
+            <span class="desc">grüne Sojabohnen, Chili, gesalzen</span>
+          </li>
+  
+          <li>
+            <span>Chicken Gyōza</span>
+            <span class="price">6,00 €</span>
+            <span class="desc">japanische Teigtaschen, Hühnerfleisch, mit Teriyaki-Soße</span>
+          </li>
+  
+          <li>
+            <span>Veggie Gyōza
+              <span class="badges">
+                <span class="badge badge-vegan" title="vegan" aria-label="vegan">🌱</span>
+              </span>
+            </span>
+            <span class="price">6,00 €</span>
+            <span class="desc">japanische Teigtaschen, Gemüse, mit Teriyaki-Soße</span>
+          </li>
+  
+          <li>
+            <span>Garnelen (crispy shrimps)</span>
+            <span class="price">5,00 €</span>
+            <span class="desc">paniert • wahlweise mit Chili-Soße</span>
+          </li>
+  
+          <li>
+            <span>Tofu Teriyaki
+              <span class="badges">
+                <span class="badge badge-vegan" title="vegan" aria-label="vegan">🌱</span>
+                <sup class="allergen">D</sup>
+              </span>
+            </span>
+            <span class="price">6,00 €</span>
+            <span class="desc">frittierter Tofu, Sesam, Teriyaki-Soße</span>
+          </li>
+        </ul>
+      </div>
+  
+      <!-- SALAT -->
+      <div class="menu-col" id="salat">
+        <h4>Salat | salad</h4>
+        <ul class="menu-lines">
+          <li>
+            <span>Kim Chi
+              <span class="badges"><span class="badge badge-spicy" aria-label="scharf">🌶🌶</span></span>
+            </span>
+            <span class="price">6,00 €</span>
+            <span class="desc">koreanischer Salat</span>
+          </li>
+  
+          <li>
+            <span>Gỏi Xoài | Mangosalat
+                <sup class="allergen">C</sup>
+            </span>
+            <span class="price">—</span>
+            <span class="desc">fruchtiger Mangosalat, Karotten, vietnamesische Kräuter, Koriander, Erdnüsse, Chili</span>
+          </li>
+          <li class="variant"><span>mit Tofu 🌱</span><span class="price">7,00 €</span></li>
+          <li class="variant"><span>mit Hühnerfleisch</span><span class="price">8,00 €</span></li>
+          <li class="variant"><span>mit Garnelen</span><span class="price">8,00 €</span></li>
+  
+          <li>
+            <span>Gỏi Cuốn | Sommerrolle</span>
+            <span class="price">—</span>
+            <span class="desc">frische Minze, Koriander, Salat, Gurke, Reisnudeln im Reispapier</span>
+          </li>
+          <li class="variant"><span>mit Tofu 🌱</span><span class="price">7,00 €</span></li>
+          <li class="variant"><span>mit Hühnerfleisch</span><span class="price">7,00 €</span></li>
+          <li class="variant"><span>mit Garnelen</span><span class="price">8,00 €</span></li>
+        </ul>
+      </div>
+  
+      <!-- WOK & CO -->
+      <div class="menu-col" id="wokco">
+        <h4>Wok & Co | main dish</h4>
+        <span class="desc">Alle Wok-Gerichte mit Jasmin-Reis. Saisonales Gemüse in dunkler Koya-Soße</span>
+        <br>
+        <br>
+        <ul class="menu-lines">
+          <li>
+            <span>Fleisch Ihrer Wahl</span>
+            <span class="price">—</span>
+          </li>
+          <li class="variant"><span>mit Tofu 🌱</span><span class="price">15,00 €</span></li>
+          <li class="variant"><span>mit Hühnerfleisch</span><span class="price">15,00 €</span></li>
+          <li class="variant"><span>mit Rindfleisch</span><span class="price">17,00 €</span></li>
+          <li class="variant"><span>mit Garnelen</span><span class="price">17,00 €</span></li>
+          <li class="variant"><span>mit knuspriger Ente</span><span class="price">17,00 €</span></li>
+  
+          <li>
+            <span>Grilled Chicken Curry
+                <sup class="allergen">8</sup>
+              <span class="badges"><span class="badge badge-spicy" aria-label="scharf">🌶</span></span>
+            </span>
+            <span class="price">15,00 €</span>
+            <span class="desc">Huhn in Curry-Soße, saisonales Gemüse, Kokosmilch</span>
+          </li>
+          <li class="variant"><span>mit Tofu 🌱</span><span class="price">15,00 €</span></li>
+          <li class="variant"><span>mit Rindfleisch</span><span class="price">17,00 €</span></li>
+  
+          <li>
+            <span>Chicken Ingwer</span>
+            <span class="price">17,00 €</span>
+            <span class="desc">Hühnerfilet, Ingwer, Koriander, saisonales Gemüse</span>
+          </li>
+          <li class="variant"><span>mit Tofu 🌱</span><span class="price">17,00 €</span></li>
+          <li class="variant"><span>mit Rindfleisch</span><span class="price">17,00 €</span></li>
+  
+          <li>
+            <span>Chicken Teriyaki</span>
+            <span class="price">17,00 €</span>
+            <span class="desc">Hühnerspieß, saisonales Gemüse, Sesam, Teriyaki-Soße</span>
+          </li>
+  
+          <li>
+            <span>Knuspriges Hühnerfilet</span>
+            <span class="price">16,00 €</span>
+            <span class="desc">paniert, Gemüse, Süß-Sauer-Soße</span>
+          </li>
+        </ul>
+  
+        <h4>Weitere Hauptgerichte</h4>
+        <ul class="menu-lines">
+          <li>
+            <span>Knusprige Ente</span>
+            <span class="price">17,00 €</span>
+            <span class="desc">Gemüse, süß & sauer</span>
+          </li>
+          <li>
+            <span>Knusprige Ente Curry
+                <span class="badges"><span class="badge badge-spicy" aria-label="scharf">🌶</span></span>
+            </span>
+            <span class="price">17,00 €</span>
+            <span class="desc">saisonales Gemüse, Kokosmilch, Curry-Soße</span>
+          </li>
+          <li>
+            <span>Koya Beef</span>
+            <span class="price">17,00 €</span>
+            <span class="desc">Rind, grüne Bohnen, Zwiebeln, Champignons, Karotten, Cashewkerne</span>
+          </li>
+          <li>
+            <span>Chili Beef
+              <span class="badges"><span class="badge badge-spicy" aria-label="sehr scharf">🌶🌶</span></span>
+            </span>
+            <span class="price">18,00 €</span>
+            <span class="desc">Rindfleisch, Gurken, frische Chilis, Koriander</span>
+          </li>
+          <li>
+            <span>Riesengarnelen</span>
+            <span class="price">18,00 €</span>
+            <span class="desc">mit Gemüse in Hoisin-Soße, Knoblauch</span>
+          </li>
+          <li>
+            <span>Koya Chicken
+                <sup class="allergen">8</sup>
+              <span class="badges"><span class="badge badge-spicy" aria-label="scharf">🌶</span></span>
+            </span>
+            <span class="price">16,00 €</span>
+            <span class="desc">Hühnerfilet, Gemüse, Koriander, Kokosmilch, hausgemachte Soße</span>
+          </li>
+          <li>
+            <span>Black Pepper Beef
+                <span class="badges"><span class="badge badge-spicy" aria-label="scharf">🌶</span></span>
+            </span>
+            <span class="price">18,00 €</span>
+            <span class="desc">Rindfleisch, Zwiebel, schwarzer Pfeffer, saisonales Gemüse</span>
+          </li>
+        </ul>
+      </div>
+  
+      <!-- RAMEN -->
+      <div class="menu-col" id="ramen">
+        <h4>Ramen | noodle soup</h4>
+        <span class="desc">Ei-Nudeln in Brühe mit verschiedenen Einlagen</span>
+        <br>
+        <br>
+        <ul class="menu-lines">
+          <li>
+            <span>Tofu Ramen
+                <sup class="allergen">A</sup>
+              <span class="badges"><span class="badge badge-vegan" aria-label="vegan">🌱</span></span>
+            </span>
+            <span class="price">16,00 €</span>
+            <span class="desc">saisonales Gemüse, Tofu, Sojasprossen, in Hühnerbrühe</span>
+          </li>
+          <li><span>Chicken Ramen <sup class="allergen">A</sup></span><span class="price">16,00 €</span>
+            <span class="desc">gegrilltes Hühnerfilet, Gemüse, Sojasprossen, in Hühnerbrühe</span></li>
+          <li><span>Rindfleisch Ramen <sup class="allergen">A</sup></span><span class="price">18,00 €</span>
+            <span class="desc">Rindfleisch, Gemüse, Sojasprossen, in Hühnerbrühe</span></li>
+          <li><span>Ente Ramen <sup class="allergen">A</sup></span><span class="price">18,00 €</span>
+            <span class="desc">knusprige Ente, Gemüse, Sojasprossen, in Hühnerbrühe</span></li>
+          <li><span>Riesengarnelen Ramen <sup class="allergen">A</sup></span><span class="price">18,00 €</span>
+            <span class="desc">Riesengarnelen, Gemüse, Sojasprossen, in Hühnerbrühe</span></li>
+        </ul>
+  
+        <!-- UDON -->
+        <h4>Udon | udon noodles</h4>
+        <span class="desc">Ist eine japanische Nudelsorte der japanischen Küche. Sie wird aus Weizenmehl, Speisesalz und Wasser hergestellt</span>
+        <br>
+        <br>
+        <ul class="menu-lines">
+          <li><span>Gemüse &amp; Tofu <sup class="allergen">AD</sup>🌱</span><span class="price">16,00 €</span>
+            <span class="desc">saisonales Gemüse, Tofu, Sesam, Teriyaki-Soße (lauwarm)</span></li>
+          <li><span>Chicken Udon <sup class="allergen">AD</sup></span><span class="price">16,00 €</span>
+            <span class="desc">gegrilltes Hühnerfilet, Gemüse, Sesam, Teriyaki-Soße (lauwarm)</span></li>
+          <li><span>Ente Udon <sup class="allergen">AD</sup></span><span class="price">18,00 €</span>
+            <span class="desc">knusprige Ente, Gemüse, Sesam, Teriyaki-Soße (lauwarm)</span></li>
+          <li><span>Tempura Garnelen Udon</span><span class="price">18,00 €</span>
+            <span class="desc">Tempura Shrimps, Gemüse, Sesam, Teriyaki-Soße (lauwarm)</span></li>
+        </ul>
+      </div>
+  
+      <!-- GEBRATENES -->
+      <div class="menu-col" id="gebratenes">
+        <h4>Gebratenes | fried</h4>
+        <ul class="menu-lines">
+          <li><span>Gebratene Nudeln oder Reis <sup class="allergen">A</sup></span><span class="price">—</span>
+            <span class="desc">Basisgericht – wählen Sie Ihre Beilage</span></li>
+          <li class="variant"><span>mit Gemüse</span><span class="price">11,00 €</span></li>
+          <li class="variant"><span>mit Rindfleisch</span><span class="price">17,00 €</span></li>
+          <li class="variant"><span>mit Garnelen</span><span class="price">16,00 €</span></li>
+          <li class="variant"><span>mit knuspriger Ente</span><span class="price">17,00 €</span></li>
+          <li class="variant"><span>mit gegrilltem Hühnerfilet</span><span class="price">15,00 €</span></li>
+          <li class="variant"><span>mit knusprigem Hähnchen</span><span class="price">15,00 €</span></li>
+          <li class="variant"><span>mit Hühnerfilet</span><span class="price">14,00 €</span></li>
+  
+          <li><span>Extras</span><span class="price">—</span><span class="desc">Zum Dippen & Verfeinern</span></li>
+          <li class="variant"><span>Süß-Sauer-Soße</span><span class="price">3,00 €</span></li>
+          <li class="variant"><span>Erdnusssoße</span><span class="price">3,00 €</span></li>
+  
+          <li><span>Teriyaki Lachsfilet – mit Ei-Nudeln <sup class="allergen">A</sup></span><span class="price">21,00 €</span>
+            <span class="desc">gebratene Ei-Nudeln, Gemüse, Teriyaki-Soße</span></li>
+          <li><span>Teriyaki Lachsfilet – mit Reis <sup class="allergen">A</sup></span><span class="price">21,00 €</span>
+            <span class="desc">Reis, Gemüse, Teriyaki-Soße</span></li>
+        </ul>
+      </div>
+  
+      <!-- KOYA SPEZIAL -->
+      <div class="menu-col" id="koya-spezial">
+        <h4>Koya Spezial</h4>
+        <ul class="menu-lines">
+          <li><span>Phở</span><span class="price">—</span>
+            <span class="desc">Reisbandnudelsuppe mit Zwiebeln, Lauch, Sojasprossen, frischem Koriander</span></li>
+          <li class="variant"><span>mit Hühnerfleisch</span><span class="price">15,00 €</span></li>
+          <li class="variant"><span>mit Rindfleisch</span><span class="price">17,00 €</span></li>
+  
+          <li>
+            <span>Miến Trộn
+              <span class="badges"><sup class="allergen">C</sup><sup class="allergen">D</sup></span>
+            </span>
+            <span class="price">—</span>
+            <span class="desc">Glasnudeln mit Gemüse & frischen Kräutern in hausgemachter Soße</span>
+          </li>
+          <li class="variant"><span>mit Hühnerfleisch</span><span class="price">15,00 €</span></li>
+          <li class="variant"><span>mit Rindfleisch</span><span class="price">17,00 €</span></li>
+          <li class="variant"><span>mit Garnelen</span><span class="price">17,00 €</span></li>
+  
+          <li>
+            <span>Phở Trộn <sup class="allergen">C</sup></span>
+            <span class="price">—</span>
+            <span class="desc">Reisbandnudeln mit Gemüse & frischen Kräutern in hausgemachter Soße</span>
+          </li>
+          <li class="variant"><span>mit Hühnerfleisch</span><span class="price">15,00 €</span></li>
+          <li class="variant"><span>mit Rindfleisch</span><span class="price">17,00 €</span></li>
+          <li class="variant"><span>mit Garnelen</span><span class="price">17,00 €</span></li>
+          <li class="variant"><span>mit knuspriger Ente</span><span class="price">18,00 €</span></li>
+  
+          <li>
+            <span>Bún Thịt Nướng (lauwarm)
+              <span class="badges"><sup class="allergen">C</sup></span>
+            </span>
+            <span class="price">19,00 €</span>
+            <span class="desc">Reisfadennudeln, gegrilltes Schweinefleisch, Frühlingsrolle, frische Kräuter, gemahlene Erdnüsse, verfeinerte Fischsoße • auch vegetarisch erhältlich</span>
+          </li>
+  
+          <li>
+            <span>Hủ Tiếu Xào
+              <span class="badges"><sup class="allergen">C</sup><sup class="allergen">D</sup></span>
+            </span>
+            <span class="price">19,00 €</span>
+            <span class="desc">gebratene Reisbandnudeln • Garnelen, Tintenfisch, Rindfleisch, Sojasprossen, Karotten, Koriander, Paprika, Zwiebeln, gemahlene Erdnüsse</span>
+          </li>
+  
+          <li><span>Bún Bò Xào (lauwarm)
+            <sup class="allergen">C</sup>
+          </span><span class="price">19,00 €</span>
+            <span class="desc">angebratenes Rindfleisch auf Reisfadennudeln, Frühlingsrolle, Salat, Sojasprossen, frische Kräuter, gemahlene Erdnüsse, verfeinerte Fischsoße</span></li>
+  
+          <li><span>KOYA KIDS Mini Chicken mit Reis
+            <sup class="allergen">A</sup>
+          </span><span class="price">10,00 €</span>
+            <span class="desc">Reis mit Gemüse & Huhn • gekochter Reis, gegrilltes Hühnerfleisch, Paprika, Karotten, Gurke</span></li>
+        </ul>
+      </div>
+  
+      <!-- DESSERT / GETRÄNKE / BIER / TEE / KAFFEE -->
+      <div class="menu-col" id="dessert-getraenke">
+        <h4>Dessert</h4>
+        <ul class="menu-lines">
+          <li><span>Mochi (3 Stück)</span><span class="price">4,90 €</span><span class="desc">verschiedene Sorten</span></li>
+          <li><span>Cocos-Eis</span><span class="price">7,90 €</span><span class="desc">coconut ice cream</span></li>
+          <li><span>Ananas Sorbet</span><span class="price">7,90 €</span><span class="desc">pineapple ice cream</span></li>
+          <li><span>Cheese Cake Eis</span><span class="price">7,90 €</span><span class="desc">cheese cake ice cream</span></li>
+          <li><span>Karamell Eis</span><span class="price">7,90 €</span><span class="desc">caramel ice cream</span></li>
+        </ul>
+  
+        <h4>Getränke – Softdrinks (0,33 L)</h4>
+        <ul class="menu-lines">
+          <li><span>Cola</span><span class="price">3,00 €</span></li>
+          <li><span>Cola Light</span><span class="price">3,00 €</span></li>
+          <li><span>Cola Zero</span><span class="price">3,00 €</span></li>
+          <li><span>Fanta | Sprite | Mezzo Mix</span><span class="price">3,00 €</span></li>
+          <li><span>Bluna Orange</span><span class="price">3,00 €</span></li>
+          <li><span>Bluna Zitrone</span><span class="price">3,00 €</span></li>
+          <li><span>Rhodius Apfelschorle</span><span class="price">3,00 €</span></li>
+          <li><span>Fuze Tea Pfirsich (0,30 L)</span><span class="price">3,00 €</span></li>
+          <li><span>Fuze Tea Zitrone (0,30 L)</span><span class="price">3,00 €</span></li>
+          <li><span>Bionade Ingwer &amp; Orange</span><span class="price">3,00 €</span></li>
+          <li><span>Bionade Holunder</span><span class="price">3,00 €</span></li>
+          <li><span>Bionade Litschi</span><span class="price">3,00 €</span></li>
+          <li><span>Selters Naturell (0,25 L)</span><span class="price">3,00 €</span></li>
+          <li><span>Selters Medium (0,25 L)</span><span class="price">3,00 €</span></li>
+        </ul>
+  
+        <h4>Bier (0,33 L Flasche)</h4>
+        <ul class="menu-lines">
+          <li><span>Krombacher Pils</span><span class="price">3,00 €</span></li>
+          <li><span>Krombacher Pils Alkoholfrei</span><span class="price">3,00 €</span></li>
+          <li><span>Tiger Bier (Singapur)</span><span class="price">4,00 €</span></li>
+          <li><span>Saigon Bier (Vietnam)</span><span class="price">4,00 €</span></li>
+          <li><span>Singha (Thailand)</span><span class="price">4,00 €</span></li>
+          <li><span>Tsingtao (China)</span><span class="price">4,00 €</span></li>
+          <li><span>Snow Beer (China)</span><span class="price">4,00 €</span></li>
+          <li><span>Asahi (Japan)</span><span class="price">4,00 €</span></li>
+          <li><span>Kirin (Japan)</span><span class="price">4,00 €</span></li>
+          <li><span>Sapporo (Japan)</span><span class="price">4,00 €</span></li>
+          <li><span>Taiwan Beer (Taiwan)</span><span class="price">4,00 €</span></li>
+        </ul>
+  
+        <h4>Tee | tea</h4>
+        <ul class="menu-lines">
+          <li><span>Jasmin Tee (Vietnam) – Kanne für 1 Person</span><span class="price">5,50 €</span></li>
+          <li><span>Grüner Tee (Japan) – Kanne für 1 Person</span><span class="price">5,50 €</span></li>
+          <li><span>Frische Minz Tee Tasse</span><span class="price">3,90 €</span></li>
+          <li><span>Frische Ingwer Tee Tasse</span><span class="price">3,90 €</span></li>
+        </ul>
+  
+        <h4>Kaffee (auch für to go)</h4>
+        <ul class="menu-lines">
+          <li><span>Kaffee</span><span class="price">3,00 €</span></li>
+          <li><span>Espresso Doppio</span><span class="price">3,00 €</span></li>
+        </ul>
+      </div>
+    </div>
+  <br>
+  <br>
+    <!-- Legende/Hinweis (NEU, schicker) -->
+<div class="menu-legend fancy">
+    <ul class="legend-list">
+      <li><span class="badge badge-vegan" aria-hidden="true">🌱</span><span>vegan</span></li>
+      <li><span class="badge badge-spicy" aria-hidden="true">🌶</span><span>scharf</span></li>
+      <li><span class="badge badge-spicy" aria-hidden="true">🌶🌶</span><span>sehr scharf</span></li>
+    </ul>
+  
+    <div class="legend-line"></div>
+  
+    <div class="legend-aux">
+      <p class="legend-note">In allen Gerichten können Geschmacksverstärker enthalten sein.</p>
+      <ul class="legend-allergens">
+        <li><span class="pill">A</span> Eier</li>
+        <li><span class="pill">B</span> Milch &amp; Laktose</li>
+        <li><span class="pill">C</span> Nüsse</li>
+        <li><span class="pill">D</span> Sesam</li>
+        <li><span class="pill">E</span> Sellerie</li>
+      </ul>
+    </div>
+  </div>  
+  </div>
+  
+  
+  
+
+        <div class="asian-card">
+            <h3 class="sub-accent-gradient">Bestellung ganz einfach</h3>
+            <p style="margin-bottom: 30px;">Bestellen Sie Ihre Lieblingsspeisen bequem von zu Hause oder besuchen Sie uns direkt in unserem gemütlichen Restaurant.</p>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <h3>Anrufen</h3>
+                    <p><strong>+49 5254 6622 880</strong></p>
+                    <p>Bestellen Sie bequem per Telefon</p>
+                    <p style="font-size: 0.9em; margin-top: 15px;">Öffnungszeiten: <br> MO - FR: 11:30 - 15:00, 17:00 - 21:00<br>SA - SO: 17:00 - 21:00<br> MI: RUHETAG</p>
+                </div>
+                <div class="contact-card">
+                    <h3>Vor Ort</h3>
+                    <p><strong>Bielefelder Str. 12</strong></p>
+                    <p>33104 Paderborn<br>Schloss Neuhaus</p>
+                    <p style="font-size: 0.9em; margin-top: 15px;">Direkt am Schloss gelegen<br>Parkplätze verfügbar</p>
+                </div>
+                <div class="contact-card">
+                    <h3>Zahlung</h3>
+                    <p><strong>Bar & Karte</strong></p>
+                    <p>Visa • Mastercard • EC-Karte</p>
+                    <p style="font-size: 0.9em; margin-top: 15px;">Kontaktlose Zahlung möglich</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="asian-card">
+            <h3 class="sub-accent-gradient">So funktioniert Ihre Bestellung</h3>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <h3>1. Kontakt aufnehmen</h3>
+                    <p>Rufen Sie uns an oder kommen Sie direkt vorbei. Unser freundliches Team berät Sie gerne bei der Auswahl.</p>
+                </div>
+                <div class="menu-item">
+                    <h3>2. Gerichte auswählen</h3>
+                    <p>Nennen Sie uns die Nummern aus unserer Speisekarte und Ihre gewünschte Variante (Huhn, Rind, vegetarisch, etc.)</p>
+                </div>
+                <div class="menu-item">
+                    <h3>3. Abholen oder genießen</h3>
+                    <p>Holen Sie Ihre Bestellung ab oder genießen Sie sie in unserem gemütlichen Restaurant-Ambiente.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="asian-card">
+            <h3 class="sub-accent-gradient">Tipps für Ihre Bestellung</h3>
+            <p><strong>Größere Feiern:</strong> Bei Bestellungen für größere Gruppen empfehlen wir, 1-2 Tage vorher anzurufen und den Betrag vor Ort anzuzahlen.</p>
+            <br>
+            <p><strong>Tisch reservieren:</strong> Möchten Sie bei uns essen? Reservieren Sie gerne telefonisch einen Tisch - besonders an Wochenenden empfehlenswert.</p>
+            <br>
+            <p><strong>Allergien & Unverträglichkeiten:</strong> Sprechen Sie uns an! Wir informieren Sie gerne über Inhaltsstoffe und können viele Gerichte individuell anpassen.</p>
+        </div>
+    </section>
+
+
+    <section id="reservieren" class="asian-card reservation-card">
+        <h3>Tisch reservieren</h3>
+      
+        <form id="resForm" class="res-form">
+          <div class="res-row">
+            <label>Datum
+              <input type="date" id="resDate" required>
+            </label>
+            <label>Uhrzeit
+              <select id="resTime" required></select>
+            </label>
+            <label>Personen
+              <select id="resPeople">
+                <option>2</option><option>3</option><option>4</option>
+                <option>5</option><option>6</option>
+              </select>
+            </label>
+          </div>
+      
+          <div class="res-row">
+            <label>Ihr Name
+              <input type="text" id="resName" placeholder="Max Mustermann" required>
+            </label>
+            <label>Telefon
+              <input type="tel" id="resPhone" placeholder="05254 6622 880" required>
+            </label>
+            <button type="submit" class="cta-button">Reservieren</button>
+          </div>
+        </form>
+      
+        <div class="res-legend">
+          <span class="dot dot-free"></span> frei
+          <span class="dot dot-booked"></span> reserviert
+        </div>
+      
+        <div id="tableGrid" class="table-grid" aria-live="polite"></div>
+      
+        <p class="menu-hint" id="resHint">
+          Öffnungszeiten: Mo–Fr 11:30–15:00 &nbsp;|&nbsp; 17:00–21:00 • Sa–So 17:00–21:00 • Mi Ruhetag
+        </p>
+      </section>
+      
+
+
+    <section class="section" id="gallery">
+        <h2 class="section-title">Unsere Küche</h2>
+        
+        <div class="asian-card">
+            <h3 class="sub-accent-gradient">Einblicke in unser Restaurant</h3>
+            <p>Werfen Sie einen Blick in unser gemütliches Restaurant und erleben Sie die Atmosphäre, die KOYA so besonders macht. Von der offenen Küche bis hin zu unseren liebevoll eingerichteten Sitzplätzen - hier fühlen sich alle wohl.</p>
+        </div>
+
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="material/koya-gerichte-impressionen-01.jpg" alt="Restaurant Interior">
+            </div>
+            <div class="gallery-item">
+                <img src="material/koya-gerichte-impressionen-02.jpg" alt="Unsere Ramen">
+            </div>
+            <div class="gallery-item">
+                <img src="material/koya-gerichte-impressionen-03.jpg" alt="Unsere Ramen">
+            </div>
+            <div class="gallery-item">
+                <img src="material/koya-gerichte-impressionen-04.jpg" alt="Unsere Ramen">
+            </div>
+            <div class="gallery-item">
+                <img src="material/koya-gerichte-impressionen-05.jpg" alt="Unsere Ramen">
+            </div>
+            <div class="gallery-item">
+                <img src="material/koya-gerichte-impressionen-06.jpg" alt="Unsere Ramen">
+            </div>
+            <div class="gallery-item">
+                <img src="material/koya-gerichte-impressionen-07.jpg" alt="Unsere Ramen">
+            </div>
+            <div class="gallery-item">
+                <img src="material/koya-gerichte-impressionen-08.jpg" alt="Unsere Ramen">
+            </div>
+            <div class="gallery-item">
+                <img src="material/koya-gerichte-impressionen-09.jpg" alt="Unsere Ramen">
+            </div>
+            <div class="gallery-item">
+                <img src="material/koya-gerichte-impressionen-10.jpg" alt="Unsere Ramen">
+            </div>
+            <div class="gallery-item">
+                <img src="material/koya-gerichte-impressionen-11.jpg" alt="Unsere Ramen">
+            </div>
+            <div class="gallery-item">
+                <img src="material/koya-gerichte-impressionen-12.jpg" alt="Unsere Ramen">
+            </div>
+            <div class="gallery-item">
+                <img src="material/koya-gerichte-impressionen-13.jpg" alt="Unsere Ramen">
+            </div>
+            <div class="gallery-item">
+                <img src="material/koya-gerichte-impressionen-14.jpg" alt="Unsere Ramen">
+            </div>
+            <div class="gallery-item">
+                <img src="material/koya-gerichte-impressionen-15.jpg" alt="Unsere Ramen">
+            </div>
+            <div class="gallery-item">
+                <img src="material/koya-gerichte-impressionen-16.jpg" alt="Unsere Ramen">
+            </div>
+            <div class="gallery-item">
+                <img src="material/koya-gerichte-impressionen-17.jpg" alt="Unsere Ramen">
+            </div>
+            <div class="gallery-item">
+                <img src="material/koya-gerichte-impressionen-18.jpg" alt="Unsere Ramen">
+            </div>
+            <div class="gallery-item">
+                <img src="material/koya-gerichte-impressionen-19.jpg" alt="Unsere Ramen">
+            </div>
+            <div class="gallery-item">
+                <img src="material/koya-gerichte-impressionen-20.jpg" alt="Unsere Ramen">
+            </div>
+            <div class="gallery-item">
+                <img src="material/koya-gerichte-impressionen-21.jpg" alt="Unsere Ramen">
+            </div>
+            <div class="gallery-item">
+                <img src="material/koya-gerichte-impressionen-22.jpg" alt="Unsere Ramen">
+            </div>
+            <div class="gallery-item">
+                <img src="material/koya-gerichte-impressionen-23.jpg" alt="Unsere Ramen">
+            </div>
+            <div class="gallery-item">
+                <img src="material/koya-gerichte-impressionen-24.jpg" alt="Unsere Ramen">
+            </div>
+        </div>
+
+        <div class="asian-card">
+            <h3 class="sub-accent-gradient">Aus unserer Küche</h3>
+            <p>In unserer offenen Küche können Sie dabei zusehen, wie Ihre Gerichte mit Leidenschaft und Können zubereitet werden. Jeder Wok-Schwung, jeder präzise Schnitt und jede liebevolle Dekoration - hier wird Kochen zur Kunst.</p>
+            <br>
+            <p><strong>Unsere Küchen-Philosophie:</strong> Frische Zubereitung • Sichtbare Qualität • Traditionelle Techniken • Moderne Präsentation • Höchste Hygiene-Standards</p>
+        </div>
+
+        <div class="asian-card">
+            <h3 class="sub-accent-gradient">Restaurant-Atmosphäre</h3>
+            <p>Unser Restaurant verbindet moderne Gemütlichkeit mit asiatischem Flair. Warme Farben, authentische Dekorationen und eine einladende Atmosphäre machen jeden Besuch zu einem besonderen Erlebnis.</p>
+            <br>
+            <p>Ob romantisches Dinner zu zweit, Familienessen oder Feier mit Freunden - bei KOYA finden Sie den perfekten Rahmen für jeden Anlass.</p>
+        </div>
+    </section>
+
+    <section class="section" id="contact">
+        <h2 class="section-title">Kontakt</h2>
+        <div class="asian-card">
+            <h3 class="sub-accent-gradient">So finden Sie uns</h3>
+            <p style="margin-bottom: 30px;">KOYA liegt im Herzen von Schloss Neuhaus, nur wenige Schritte vom historischen Schloss entfernt. Unser Restaurant ist leicht zu finden und gut mit öffentlichen Verkehrsmitteln sowie dem Auto erreichbar.</p>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <h3>Adresse</h3>
+                    <p><strong>Bielefelder Str. 12</strong><br>
+                    33104 Paderborn<br>
+                    Schloss Neuhaus</p>
+                    <p style="font-size: 0.9em; margin-top: 15px;">Zentral gelegen, direkt beim Schloss<br>Parkplätze in der Nähe verfügbar</p>
+                </div>
+                <div class="contact-card">
+                    <h3>Telefon</h3>
+                    <p><strong>+49 5254 6622 880</strong><br>
+                    Bestellungen & Reservierungen</p>
+                    <p style="font-size: 0.9em; margin-top: 15px;">Bei größeren Feiern bitte 1-2 Tage vorher anrufen<br>Telefonische Beratung zur Speiseauswahl</p>
+                </div>
+                <div class="contact-card">
+                    <h3>Service</h3>
+                    <p><strong>Zum Mitnehmen</strong><br>
+                    <strong>Vor Ort genießen</strong></p>
+                    <p style="font-size: 0.9em; margin-top: 15px;">Tischreservierung empfohlen<br>Auch für größere Gruppen geeignet</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="asian-card">
+            <h3 class="sub-accent-gradient">Öffnungszeiten & Anfahrt</h3>
+            <p><strong>Wir sind täglich für Sie da!</strong> Rufen Sie uns an, um die aktuellen Öffnungszeiten zu erfahren.</p>
+            <br>
+            <p><strong>Öffentliche Verkehrsmittel:</strong> Bus-Haltestelle "Schloss Neuhaus Zentrum" in 2 Minuten Fußweg erreichbar</p>
+            <p><strong>Mit dem Auto:</strong> Parkplätze in der Bielefelder Straße und Nebenstraßen verfügbar</p>
+            <p><strong>Mit dem Fahrrad:</strong> Fahrradständer direkt vor dem Restaurant</p>
+        </div>
+        
+        <div class="asian-card">
+            <h3 class="sub-accent-gradient">Karriere bei KOYA - Werde Teil unserer Familie</h3>
+            <p><strong>Du liebst gutes Essen und suchst einen Job in familiärer Atmosphäre?</strong></p>
+            <br>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <h3>Wir suchen</h3>
+                    <p><strong>Servicekräfte</strong> (Minijob oder Vollzeit)<br>
+                    <strong>Küchenhilfen</strong><br>
+                    <strong>Unterstützung bei Abholung & Verpackung</strong></p>
+                </div>
+                <div class="menu-item">
+                    <h3>Wir bieten</h3>
+                    <p><strong>Faire Bezahlung</strong> über Mindestlohn<br>
+                    <strong>Geteiltes Trinkgeld</strong> im gesamten Team<br>
+                    <strong>Flexible Arbeitszeiten</strong> & kurze Schichten</p>
+                </div>
+                <div class="menu-item">
+                    <h3>Unser Team</h3>
+                    <p><strong>Familiäres Arbeitsumfeld</strong><br>
+                    <strong>Guter Teamspirit</strong><br>
+                    <strong>Einarbeitung & Unterstützung</strong></p>
+                </div>
+            </div>
+            <br>
+            <p style="text-align: center; font-weight: bold;">Interesse? Rufen Sie uns an unter +49 5254 6622 880 oder kommen Sie einfach vorbei!</p>
+        </div>
+
+        <div class="asian-card">
+            <h3 class="sub-accent-gradient">Kundenfeedback willkommen</h3>
+            <p>Ihre Meinung ist uns wichtig! Lassen Sie uns wissen, wie Ihnen Ihr Besuch bei KOYA gefallen hat. Anregungen, Lob oder konstruktive Kritik helfen uns dabei, uns stetig zu verbessern und Ihnen noch besseren Service zu bieten.</p>
+            <br>
+            <p><strong>Folgen Sie uns auch online:</strong> Verpassen Sie keine Neuigkeiten über saisonale Spezialitäten, Events und besondere Angebote!</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-section">
+                    <div class="footer-logo">KOYA</div>
+                    <p>Seit über 20 Jahren verwöhnen wir unsere Gäste mit authentischer asiatischer Küche in familiärer Atmosphäre. Jedes Gericht wird mit Liebe und nach traditionellen Rezepten zubereitet.</p>
+                    <div class="footer-address">
+                        <p><strong>📍 Bielefelder Str. 12</strong><br>
+                        33104 Paderborn - Schloss Neuhaus</p>
+                        <a href="tel:+4952546622880" class="footer-phone">📞 +49 5254 6622 880</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Unsere Spezialitäten</h3>
+                    <ul>
+                        <li>Authentische Ramen & Udon Suppen</li>
+                        <li>Vietnamesische Pho nach Familienrezept</li>
+                        <li>Würzige Thai Currys</li>
+                        <li>Frische Wok-Gerichte</li>
+                        <li>Hausgemachte Saucen</li>
+                        <li>Vegetarische & vegane Optionen</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Service & Angebot</h3>
+                    <ul>
+                        <li>Abholung & Lieferung</li>
+                        <li>Vor Ort genießen</li>
+                        <li>Tischreservierung</li>
+                        <li>Große Portionen, faire Preise</li>
+                        <li>Kartenzahlung möglich</li>
+                        <li>Individuelle Speisenberatung</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Warum KOYA?</h3>
+                    <ul>
+                        <li>Über 20 Jahre Erfahrung</li>
+                        <li>Familienbetrieb mit Herz</li>
+                        <li>Täglich frisch zubereitet</li>
+                        <li>Traditionelle Rezepte</li>
+                        <li>Qualität seit Generationen</li>
+                        <li>Authentischer Geschmack</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-divider"></div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 KOYA Schloss Neuhaus - Alle Rechte vorbehalten</p>
+                <p class="footer-tagline">"Authentische asiatische Küche mit Leidenschaft seit über 20 Jahren"</p>
+                <p style="margin-top: 20px; color: #d4af37;">Mit Liebe und Tradition zubereitet</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Cherry Blossom Animation
+        function createCherryBlossoms() {
+            const cherryLayer = document.querySelector('.cherry-layer');
+            const cherryCount = 15;
+            
+            setInterval(() => {
+                const cherry = document.createElement('div');
+                cherry.className = 'cherry-blossom';
+                cherry.style.left = Math.random() * 100 + '%';
+                cherry.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                cherry.style.animationDelay = Math.random() * 5 + 's';
+                cherryLayer.appendChild(cherry);
+                
+                setTimeout(() => cherry.remove(), 20000);
+            }, 2000);
+        }
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and menu items
+        document.querySelectorAll('.asian-card, .menu-item, .gallery-item, .contact-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.8s ease';
+            observer.observe(el);
+        });
+
+        // Phone number click tracking
+        document.querySelectorAll('a[href^="tel:"]').forEach(tel => {
+            tel.addEventListener('click', () => {
+                console.log('Phone call initiated');
+            });
+        });
+
+        // Initialize cherry blossoms
+        createCherryBlossoms();
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add hover sound effect simulation
+        document.querySelectorAll('.menu-item, .contact-card, .gallery-item').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                // Visual feedback for interaction
+                item.style.transform += ' scale(1.02)';
+            });
+            item.addEventListener('mouseleave', () => {
+                item.style.transform = item.style.transform.replace(' scale(1.02)', '');
+            });
+        });
+    </script>
+
+<script>
+    (() => {
+      // ---------- Öffnungszeiten & Slots ----------
+      const slotsByDay = {
+        1: [[11.5,15],[17,21]], // Mo: 11:30–15:00, 17:00–21:00
+        2: [[11.5,15],[17,21]], // Di
+        3: [],                  // Mi Ruhetag
+        4: [[11.5,15],[17,21]], // Do
+        5: [[11.5,15],[17,21]], // Fr
+        6: [[17,21]],           // Sa
+        0: [[17,21]],           // So
+      };
+      const stepMinutes = 30; // 30-Minuten-Slots
+      const tables = [
+        {id:'T1', name:'Tisch 1', seats:2},
+        {id:'T2', name:'Tisch 2', seats:2},
+        {id:'T3', name:'Tisch 3', seats:4},
+        {id:'T4', name:'Tisch 4', seats:4},
+        {id:'T5', name:'Tisch 5', seats:4},
+        {id:'T6', name:'Tisch 6', seats:6},
+        {id:'T7', name:'Tisch 7', seats:2},
+        {id:'T8', name:'Tisch 8', seats:2},
+        {id:'T9', name:'Tisch 9', seats:4},
+        {id:'T10', name:'Tisch 10', seats:6},
+      ];
+    
+      // ---------- Helpers ----------
+      const $ = s => document.querySelector(s);
+      const fmt = n => String(n).padStart(2,'0');
+      const toKey = (date, time) => `${date}|${time}`; // key for localStorage bucket
+      const store = {
+        get(date,time){
+          const raw = localStorage.getItem(toKey(date,time));
+          return raw ? JSON.parse(raw) : {};
+        },
+        set(date,time,map){
+          localStorage.setItem(toKey(date,time), JSON.stringify(map||{}));
+        }
+      };
+    
+      // ---------- UI Elements ----------
+      const grid = $('#tableGrid');
+      const selTime = $('#resTime');
+      const inpDate = $('#resDate');
+      const frm = $('#resForm');
+    
+      // default Datum = heute
+      const today = new Date();
+      inpDate.value = today.toISOString().slice(0,10);
+    
+      function buildSlots(dateStr){
+        selTime.innerHTML = '';
+        const d = new Date(dateStr+'T00:00:00');
+        const day = d.getDay();
+        const ranges = slotsByDay[day] || [];
+        if(!ranges.length){
+          selTime.innerHTML = `<option value="" disabled selected>geschlossen</option>`;
+          grid.innerHTML = '<div class="table-meta">Heute ist Ruhetag.</div>';
+          return;
+        }
+        const opts = [];
+        ranges.forEach(([start,end])=>{
+          let m = Math.round(start*60);
+          const stop = Math.round(end*60);
+          while(m < stop){
+            const h = Math.floor(m/60), mm = m%60;
+            opts.push(`${fmt(h)}:${fmt(mm)}`);
+            m += stepMinutes;
+          }
+        });
+        opts.forEach(t=>{
+          const o = document.createElement('option');
+          o.value = t; o.textContent = t; selTime.appendChild(o);
+        });
+      }
+    
+      function renderTables(dateStr, timeStr){
+        grid.innerHTML = '';
+        const reservations = store.get(dateStr, timeStr); // {tableId: {name,phone,people}}
+        tables.forEach(t=>{
+          const booked = Boolean(reservations[t.id]);
+          const card = document.createElement('button');
+          card.type = 'button';
+          card.className = `table-card ${booked?'booked':'free'}`;
+          card.dataset.tableId = t.id;
+          card.innerHTML = `
+            <div class="table-name">${t.name}</div>
+            <div class="table-meta">${t.seats} Plätze</div>
+            <span class="table-status">${booked?'reserviert':'frei'}</span>`;
+          card.onclick = () => {
+            // Select in form (visuell durch Fokus)
+            document.querySelectorAll('.table-card').forEach(c=>c.classList.remove('selected'));
+            card.classList.add('selected');
+            frm.dataset.selectedTable = t.id;
+          };
+          grid.appendChild(card);
+        });
+      }
+    
+      // Initialisieren
+      buildSlots(inpDate.value);
+      selTime.selectedIndex = Math.max(0, selTime.options.length ? 0 : -1);
+      renderTables(inpDate.value, selTime.value);
+    
+      inpDate.addEventListener('change', () => {
+        buildSlots(inpDate.value);
+        selTime.selectedIndex = 0;
+        renderTables(inpDate.value, selTime.value);
+      });
+      selTime.addEventListener('change', () => renderTables(inpDate.value, selTime.value));
+    
+      // ---------- Reservieren (Demo: localStorage) ----------
+      frm.addEventListener('submit', (e)=>{
+        e.preventDefault();
+        const tableId = frm.dataset.selectedTable;
+        if(!tableId){ alert('Bitte zuerst einen Tisch im Plan wählen.'); return; }
+        const dateStr = inpDate.value;
+        const timeStr = selTime.value;
+        const map = store.get(dateStr, timeStr);
+        if(map[tableId]){ alert('Dieser Tisch ist bereits reserviert.'); return; }
+    
+        const name = document.getElementById('resName').value.trim();
+        const phone = document.getElementById('resPhone').value.trim();
+        const people = document.getElementById('resPeople').value;
+    
+        map[tableId] = { name, phone, people, ts: Date.now() };
+        store.set(dateStr, timeStr, map);
+        renderTables(dateStr, timeStr);
+        frm.reset(); delete frm.dataset.selectedTable;
+        alert(`Reserviert: ${tableId} am ${dateStr} um ${timeStr}`);
+      });
+    })();
+    </script>    
+
+</body>
+</html>
