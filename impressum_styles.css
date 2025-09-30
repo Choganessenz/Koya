@@ -1,0 +1,68 @@
+/* === KOYA – LEGAL PAGES (Impressum) ================================== */
+.legal-page body { background: #0b0908; }
+
+#impressum .legal-card {
+  padding: 28px 28px;
+  border: 1px solid rgba(212,175,55,.25);
+  box-shadow: 0 10px 30px rgba(0,0,0,.35);
+}
+
+#impressum h1.sub-accent-gradient {
+  margin-bottom: 10px;
+}
+
+#impressum .legal-meta {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 14px;
+  margin: 8px 0 14px;
+}
+
+#impressum .meta-block {
+  background: rgba(255,255,255,.02);
+  border: 1px solid rgba(212,175,55,.13);
+  border-radius: 14px;
+  padding: 12px 14px;
+}
+
+#impressum .meta-block h3 {
+  color: var(--accent, #d4af37);
+  font-size: 1rem;
+  margin: 0 0 6px 0;
+  position: relative;
+}
+#impressum .meta-block h3::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: -6px;
+  width: 44px; height: 2px;
+  background: linear-gradient(90deg, var(--accent, #d4af37), transparent);
+}
+
+#impressum .legal-content h2 {
+  margin-top: 1.1rem;
+  margin-bottom: .35rem;
+  font-size: 1.15rem;
+  color: var(--accent, #d4af37);
+  position: relative;
+}
+#impressum .legal-content h2::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: -6px;
+  width: 56px; height: 2px;
+  background: linear-gradient(90deg, var(--accent, #d4af37), transparent);
+}
+
+#impressum .legal-content p {
+  color: #ccc;
+  line-height: 1.7;
+}
+#impressum .legal-note {
+  color:#9b8b58;
+  font-style: italic;
+}
+
+@media (max-width: 900px) {
+  #impressum .legal-meta { grid-template-columns: 1fr; }
+}
