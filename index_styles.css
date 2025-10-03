@@ -1646,3 +1646,28 @@ footer .footer-bottom .legal-links a:active {
   transform: translateY(0);
   box-shadow: 0 6px 16px rgba(212,175,55,.18);
 }
+
+/* SVG-Icons in Badges */
+.badge-icon {
+  width: 1.2em;
+  height: 1.2em;
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+/* Badge als Flexbox für Icons */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
+
+/* Farben für SVG-Icons */
+.badge-vegan .badge-icon {
+  filter: brightness(0) saturate(100%) invert(69%) sepia(17%) saturate(833%) hue-rotate(82deg) brightness(94%) contrast(87%);
+}
+
+.badge-spicy .badge-icon {
+  filter: brightness(0) saturate(100%) invert(51%) sepia(94%) saturate(2727%) hue-rotate(333deg) brightness(101%) contrast(101%);
+}
