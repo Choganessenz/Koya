@@ -716,11 +716,9 @@ h1, h2, h3, .heading, .logo {
     list-style: none;
     padding: 0;
     margin: 0 0 16px 0;
-    counter-reset: dish;
 }
 
 .menu-lines li {
-    counter-increment: dish;
     display: grid;
     grid-template-columns: 1fr auto;
     gap: 6px 16px;
@@ -813,9 +811,14 @@ h1, h2, h3, .heading, .logo {
 
 .menu-lines .badges {
     display: inline-flex;
-    gap: 4px;
+    gap: 2px;
     align-items: center;
-    margin-left: 4px;
+    margin-left: 2px;
+}
+
+/* Einzelne Badges */
+.menu-lines .badge {
+    padding: 0px 0px;  /* statt 2px 6px */
 }
 
 .menu-col h4 + .menu-lines { margin-top: 6px; }
@@ -1722,12 +1725,16 @@ p, li, small {
 
 .asian-card.menu-full .menu-lines li::before {
   grid-column: 1;
-  content: counter(dish) ".";
+  content: attr(data-number) ".";
   text-align: right;
   font-variant-numeric: tabular-nums;
   font-weight: 700;
   color: var(--accent, #d4af37);
   align-self: start;
+}
+
+.asian-card.menu-full .menu-lines li.no-number::before {
+    content: "";  /* Leer = keine Nummer */
 }
 
 .asian-card.menu-full .menu-lines .price {
@@ -1775,8 +1782,8 @@ footer .footer-bottom .legal-links a:active {
 
 /* SVG-Icons in Badges */
 .badge-icon {
-  width: 1.2em;
-  height: 1.2em;
+  width: 0.8em;
+  height: 0.8em;
   display: inline-block;
   vertical-align: middle;
   flex-shrink: 0;
