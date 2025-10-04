@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KOYA - Speisekarte</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&family=Crimson+Text:ital,wght@0,400;1,600&display=swap');
+
+        :root {
+            --font-display: "Playfair Display", Georgia, serif;
+            --font-text: "Inter", system-ui, sans-serif;
+            --text: #e9e9e9;
+            --text-muted: #cfcfcf;
+            --accent: #d4af37;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1a0e0a 0%, #2d1810 50%, #0a0a0a 100%);
+            font-family: var(--font-text);
+            color: var(--text);
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* Bambus Overlay */
+        .bamboo-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='40' height='80' viewBox='0 0 40 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23d4af37' fill-opacity='0.03'%3E%3Cpath d='M0 0h40v80H0V0zm20 10c0-5.5-4.5-10-10-10s-10 4.5-10 10v60c0 5.5 4.5 10 10 10s10-4.5 10-10V10z'/%3E%3C/g%3E%3C/svg%3E") repeat;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Kirschblüten */
+        .cherry-layer {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .cherry-blossom {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: radial-gradient(circle, #ffb3ba, #ff6b7a);
+            border-radius: 50% 10% 50% 10%;
+            animation: float-cherry 15s infinite linear;
+            opacity: 0.7;
+        }
+
+        @keyframes float-cherry {
+            0% {
+                transform: translateY(100vh) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+            }
+            90% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-20px) translateX(100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .menu-container {
+            position: relative;
+            z-index: 2;
+            max-width: 100%;
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08), rgba(255, 71, 87, 0.03));
+            border: 1px solid #d4af37;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            color: #d4af37;
+            text-align: center;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        h2 {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            text-align: center;
+            margin-bottom: 30px;
+            background: linear-gradient(90deg, #d4af37 0%, #ffb86b 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .menu-columns {
+            column-count: 2;
+            column-gap: 30px;
+            column-fill: balance;
+        }
+
+        .menu-col {
+            break-inside: avoid;
+            page-break-inside: avoid;
+            margin-bottom: 30px;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .menu-col h4 {
+            color: #d4af37;
+            font-family: 'Crimson Text', serif;
+            margin: 18px 0 12px;
+            font-size: 1.3rem;
+            break-after: avoid;
+            page-break-after: avoid;
+        }
+
+        .menu-lines {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 20px 0;
+        }
+
+        .menu-lines li {
+            display: grid;
+            grid-template-columns: 3.2ch 1fr auto;
+            gap: 4px 10px;
+            align-items: baseline;
+            padding: 10px 0;
+            border-bottom: 1px dashed rgba(212, 175, 55, 0.25);
+            break-inside: avoid;
+            page-break-inside: avoid;
+        }
+
+        .menu-lines li::before {
+            content: attr(data-number) ".";
+            text-align: right;
+            font-variant-numeric: tabular-nums;
+            font-weight: 700;
+            color: #d4af37;
+        }
+
+        .menu-lines li.variant::before {
+            content: "";
+            width: 0.55rem;
+            height: 0.55rem;
+            border-radius: 50%;
+            background: #d4af37;
+            box-shadow: 0 0 0 1px rgba(212,175,55,.25);
+            justify-self: end;
+            align-self: center;
+        }
+
+        .menu-lines li.no-number::before {
+            content: "";
+        }
+
+        .menu-lines .price {
+            color: #d4af37;
+            font-weight: 700;
+            white-space: nowrap;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .menu-lines .desc {
+            grid-column: 1 / -1;
+            font-size: 0.9rem;
+            color: #cfcfcf;
+            margin-top: 2px;
+            font-weight: 300;
+        }
+
+        .allergen {
+            font-size: 0.7em;
+            font-weight: 700;
+            color: #d4af37;
+            margin-left: 0.2em;
+            vertical-align: super;
+        }
+
+        /* SVG-Icons in Badges */
+.badge-icon {
+  width: 0.8em;
+  height: 0.8em;
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+/* Badge als Flexbox für Icons */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
+
+/* Farben für SVG-Icons */
+.badge-vegan .badge-icon {
+  filter: brightness(0) saturate(100%) invert(69%) sepia(17%) saturate(833%) hue-rotate(82deg) brightness(94%) contrast(87%);
+}
+
+.badge-spicy .badge-icon {
+  filter: brightness(0) saturate(100%) invert(51%) sepia(94%) saturate(2727%) hue-rotate(333deg) brightness(101%) contrast(101%);
+}
+
+
+        .menu-legend {
+            border: 1px dashed rgba(212,175,55,.35);
+            background: rgba(212,175,55,.06);
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 30px;
+            break-inside: avoid;
+        }
+
+        .legend-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 20px;
+            margin: 0 0 10px 0;
+            padding: 0;
+        }
+
+        .legend-list li {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .legend-allergens {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 14px;
+            margin: 10px 0 0 0;
+            padding: 0;
+        }
+
+        .legend-allergens li {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 1.4em;
+            height: 1.4em;
+            border-radius: 9999px;
+            border: 1px solid rgba(212,175,55,.45);
+            background: rgba(212,175,55,.08);
+            color: #d4af37;
+            font-weight: 700;
+            font-size: 0.78rem;
+        }
+
+        .legend-note {
+            color: #cfcfcf;
+            font-style: italic;
+            margin: 10px 0;
+        }
+
+        .legend-line {
+            height: 1px;
+            margin: 8px 0 10px;
+            background: linear-gradient(
+                to right,
+                rgba(212,175,55,.0),
+                rgba(212,175,55,.35) 20%,
+                rgba(212,175,55,.35) 80%,
+                rgba(212,175,55,.0)
+            );
+        }
+
+        @media print {
+            @page {
+                margin: 0;
+                size: A4;
+            }
+
+            body {
+                background: linear-gradient(135deg, #1a0e0a 0%, #2d1810 50%, #0a0a0a 100%) !important;
+            }
+
+            .menu-container {
+                padding: 20mm;
+                border: none;
+            }
+
+            .bamboo-overlay,
+            .cherry-layer {
+                display: block !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bamboo-overlay"></div>
+    <div class="cherry-layer" id="cherryLayer"></div>
+
+    <div class="menu-container">
+        <h1>KOYA</h1>
+        <h2>Speisekarte</h2>
+
+        <div class="menu-columns">
+            <div class="menu-col">
+                <h4>Vorspeisen | starter</h4>
+                <ul class="menu-lines">
+                    <li data-number="1">
+                        <span>Hühnersuppe<sup class="allergen">8</sup></span>
+                        <span class="price">7,00 €</span>
+                        <span class="desc">Kokosmilch, Bambusstreifen, Champignons, Koriander, Zitronenblätter</span>
+                    </li>
+                    <li data-number="4">
+                        <span>Wantan Suppe<sup class="allergen">A</sup><sup class="allergen">H</sup></span>
+                        <span class="price">7,00 €</span>
+                        <span class="desc">Hühnerfleisch, Shrimps</span>
+                    </li>
+                    <li data-number="5">
+                        <span>Koya Frühlingsrollen<sup class="allergen">A</sup></span>
+                        <span class="price">5,00 €</span>
+                        <span class="desc">Hühnerfleisch, Gemüse, mit Chili-Soße • auch vegetarisch erhältlich</span>
+                    </li>
+                    <li data-number="6">
+                        <span>Edamame <span class="badge badge-vegan"><img src="material/vegan.svg" alt="" class="badge-icon"></span><sup class="allergen">F</sup></span>
+                        <span class="price">5,00 €</span>
+                        <span class="desc">grüne Sojabohnen, Chili, gesalzen</span>
+                    </li>
+                    <li data-number="7">
+                        <span>Chicken Gyōza<sup class="allergen">F</sup></span>
+                        <span class="price">6,00 €</span>
+                        <span class="desc">japanische Teigtaschen, Hühnerfleisch, mit Teriyaki-Soße</span>
+                    </li>
+                    <li data-number="8">
+                        <span>Veggie Gyōza <span class="badge badge-vegan"><img src="material/vegan.svg" alt="" class="badge-icon"></span><sup class="allergen">F</sup></span>
+                        <span class="price">6,00 €</span>
+                        <span class="desc">japanische Teigtaschen, Gemüse, mit Teriyaki-Soße</span>
+                    </li>
+                    <li data-number="10">
+                        <span>Garnelen<sup class="allergen">A</sup><sup class="allergen">H</sup></span>
+                        <span class="price">5,00 €</span>
+                        <span class="desc">paniert • wahlweise mit Chili-Soße</span>
+                    </li>
+                    <li data-number="11">
+                        <span>Tofu Teriyaki <span class="badge badge-vegan"><img src="material/vegan.svg" alt="" class="badge-icon"></span><sup class="allergen">F</sup><sup class="allergen">D</sup></span>
+                        <span class="price">6,00 €</span>
+                        <span class="desc">frittierter Tofu, Sesam, Teriyaki-Soße</span>
+                    </li>
+                </ul>
+
+                <h4>Salat | salad</h4>
+                <ul class="menu-lines">
+                    <li data-number="13">
+                        <span>Kim Chi <span class="badge badge-spicy"><img src="material/chilli.svg" alt="" class="badge-icon"><img src="material/chilli.svg" alt="" class="badge-icon"></span></span>
+                        <span class="price">6,00 €</span>
+                        <span class="desc">koreanischer Salat</span>
+                    </li>
+                    <li data-number="16">
+                        <span>Gỏi Xoài | Mangosalat<sup class="allergen">C</sup></span>
+                        <span class="price">—</span>
+                        <span class="desc">fruchtiger Mangosalat, Karotten, vietnamesische Kräuter, Koriander, Erdnüsse, Chili</span>
+                    </li>
+                    <li class="variant"><span>mit Tofu</span><span class="price">7,00 €</span></li>
+                    <li class="variant"><span>mit Hühnerfleisch</span><span class="price">8,00 €</span></li>
+                    <li class="variant"><span>mit Garnelen</span><span class="price">8,00 €</span></li>
+                    <li data-number="17">
+                        <span>Gỏi Cuốn | Sommerrolle</span>
+                        <span class="price">—</span>
+                        <span class="desc">frische Minze, Koriander, Salat, Gurke, Reisnudeln im Reispapier</span>
+                    </li>
+                    <li class="variant"><span>mit Tofu <span class="badge badge-vegan"><img src="material/vegan.svg" alt="" class="badge-icon"></span></span><span class="price">7,00 €</span></li>
+                    <li class="variant"><span>mit Hühnerfleisch</span><span class="price">7,00 €</span></li>
+                    <li class="variant"><span>mit Garnelen</span><span class="price">8,00 €</span></li>
+                </ul>
+            </div>
+
+            <div class="menu-col">
+                <h4>Wok & Co | main dish</h4>
+                <span class="desc">Alle Wok-Gerichte mit Jasmin-Reis. Saisonales Gemüse in dunkler Koya-Soße</span>
+                <ul class="menu-lines">
+                    <li data-number="18">
+                        <span>Fleisch Ihrer Wahl</span>
+                        <span class="price">—</span>
+                    </li>
+                    <li class="variant"><span>mit Tofu <span class="badge badge-vegan"><img src="material/vegan.svg" alt="" class="badge-icon"></span></span><span class="price">15,00 €</span></li>
+                    <li class="variant"><span>mit Hühnerfleisch</span><span class="price">15,00 €</span></li>
+                    <li class="variant"><span>mit Rindfleisch</span><span class="price">17,00 €</span></li>
+                    <li class="variant"><span>mit Garnelen</span><span class="price">17,00 €</span></li>
+                    <li class="variant"><span>mit knuspriger Ente</span><span class="price">17,00 €</span></li>
+                    <li data-number="19">
+                        <span>Grilled Chicken Curry <span class="badge badge-spicy"><img src="material/chilli.svg" alt="" class="badge-icon"></span><sup class="allergen">8</sup></span>
+                        <span class="price">15,00 €</span>
+                        <span class="desc">Huhn in Curry-Soße, saisonales Gemüse, Kokosmilch</span>
+                    </li>
+                    <li class="variant"><span>mit Tofu <span class="badge badge-vegan"><img src="material/vegan.svg" alt="" class="badge-icon"></span></span><span class="price">15,00 €</span></li>
+                    <li class="variant"><span>mit Rindfleisch</span><span class="price">17,00 €</span></li>
+                    <li data-number="20">
+                        <span>Chicken Ingwer</span>
+                        <span class="price">17,00 €</span>
+                        <span class="desc">Hühnerfilet, Ingwer, Koriander, saisonales Gemüse</span>
+                    </li>
+                    <li class="variant"><span>mit Tofu <span class="badge badge-vegan"><img src="material/vegan.svg" alt="" class="badge-icon"></span></span><span class="price">17,00 €</span></li>
+                    <li class="variant"><span>mit Rindfleisch</span><span class="price">17,00 €</span></li>
+                    <li data-number="21">
+                        <span>Chicken Teriyaki<sup class="allergen">F</sup></span>
+                        <span class="price">17,00 €</span>
+                        <span class="desc">Hühnerspieß, saisonales Gemüse, Sesam, Teriyaki-Soße</span>
+                    </li>
+                    <li data-number="22">
+                        <span>Knuspriges Hühnerfilet<sup class="allergen">A</sup></span>
+                        <span class="price">16,00 €</span>
+                        <span class="desc">paniert, Gemüse, Süß-Sauer-Soße</span>
+                    </li>
+                </ul>
+
+                <h4>Weitere Hauptgerichte</h4>
+                <ul class="menu-lines">
+                    <li data-number="23">
+                        <span>Knusprige Ente</span>
+                        <span class="price">17,00 €</span>
+                        <span class="desc">Gemüse, süß & sauer</span>
+                    </li>
+                    <li data-number="24">
+                        <span>Knusprige Ente Curry <span class="badge badge-spicy"><img src="material/chilli.svg" alt="" class="badge-icon"></span><sup class="allergen">8</sup></span>
+                        <span class="price">17,00 €</span>
+                        <span class="desc">saisonales Gemüse, Kokosmilch, Curry-Soße</span>
+                    </li>
+                    <li data-number="25">
+                        <span>Koya Beef<sup class="allergen">C</sup></span>
+                        <span class="price">17,00 €</span>
+                        <span class="desc">Rind, grüne Bohnen, Zwiebeln, Champignons, Karotten, Cashewkerne</span>
+                    </li>
+                    <li data-number="26">
+                        <span>Chili Beef <span class="badge badge-spicy"><img src="material/chilli.svg" alt="" class="badge-icon"><img src="material/chilli.svg" alt="" class="badge-icon"></span></span>
+                        <span class="price">18,00 €</span>
+                        <span class="desc">Rindfleisch, Gurken, frische Chilis, Koriander</span>
+                    </li>
+                    <li data-number="27">
+                        <span>Riesengarnelen<sup class="allergen">H</sup></span>
+                        <span class="price">18,00 €</span>
+                        <span class="desc">mit Gemüse in Hoisin-Soße, Knoblauch</span>
+                    </li>
+                    <li data-number="28">
+                        <span>Koya Chicken <span class="badge badge-spicy"><img src="material/chilli.svg" alt="" class="badge-icon"></span><sup class="allergen">8</sup></span>
+                        <span class="price">16,00 €</span>
+                        <span class="desc">Hühnerfilet, Gemüse, Koriander, Kokosmilch, hausgemachte Soße</span>
+                    </li>
+                    <li data-number="29">
+                        <span>Black Pepper Beef <span class="badge badge-spicy"><img src="material/chilli.svg" alt="" class="badge-icon"></span></span>
+                        <span class="price">18,00 €</span>
+                        <span class="desc">Rindfleisch, Zwiebel, schwarzer Pfeffer, saisonales Gemüse</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="menu-col">
+                <h4>Ramen | noodle soup</h4>
+                <span class="desc">Ei-Nudeln in Brühe mit verschiedenen Einlagen</span>
+                <ul class="menu-lines">
+                    <li data-number="31">
+                        <span>Tofu Ramen <span class="badge badge-vegan"><img src="material/vegan.svg" alt="" class="badge-icon"></span><sup class="allergen">A</sup><sup class="allergen">F</sup></span>
+                        <span class="price">16,00 €</span>
+                        <span class="desc">saisonales Gemüse, Tofu, Sojasprossen, in Hühnerbrühe</span>
+                    </li>
+                    <li data-number="32">
+                        <span>Chicken Ramen<sup class="allergen">A</sup></span>
+                        <span class="price">16,00 €</span>
+                        <span class="desc">gegrilltes Hühnerfilet, Gemüse, Sojasprossen, in Hühnerbrühe</span>
+                    </li>
+                    <li data-number="33">
+                        <span>Rindfleisch Ramen<sup class="allergen">A</sup></span>
+                        <span class="price">18,00 €</span>
+                        <span class="desc">Rindfleisch, Gemüse, Sojasprossen, in Hühnerbrühe</span>
+                    </li>
+                    <li data-number="34">
+                        <span>Ente Ramen<sup class="allergen">A</sup></span>
+                        <span class="price">18,00 €</span>
+                        <span class="desc">knusprige Ente, Gemüse, Sojasprossen, in Hühnerbrühe</span>
+                    </li>
+                    <li data-number="35">
+                        <span>Riesengarnelen Ramen<sup class="allergen">A</sup><sup class="allergen">H</sup></span>
+                        <span class="price">18,00 €</span>
+                        <span class="desc">Riesengarnelen, Gemüse, Sojasprossen, in Hühnerbrühe</span>
+                    </li>
+                </ul>
+
+                <h4>Udon | udon noodles</h4>
+                <span class="desc">Japanische Nudelsorte aus Weizenmehl, Speisesalz und Wasser</span>
+                <ul class="menu-lines">
+                    <li data-number="36">
+                        <span>Gemüse & Tofu <span class="badge badge-vegan"><img src="material/vegan.svg" alt="" class="badge-icon"></span><sup class="allergen">A</sup><sup class="allergen">D</sup><sup class="allergen">F</sup></span>
+                        <span class="price">16,00 €</span>
+                    </li>
+                    <li data-number="37">
+                        <span>Chicken Udon<sup class="allergen">A</sup><sup class="allergen">D</sup><sup class="allergen">F</sup></span>
+                        <span class="price">16,00 €</span>
+                        <span class="desc">gegrilltes Hühnerfilet, Gemüse, Sesam, Teriyaki-Soße (lauwarm)</span>
+                    </li>
+                    <li data-number="38">
+                        <span>Ente Udon<sup class="allergen">A</sup><sup class="allergen">D</sup><sup class="allergen">F</sup></span>
+                        <span class="price">18,00 €</span>
+                        <span class="desc">knusprige Ente, Gemüse, Sesam, Teriyaki-Soße (lauwarm)</span>
+                    </li>
+                    <li data-number="39">
+                        <span>Tempura Garnelen Udon<sup class="allergen">A</sup><sup class="allergen">D</sup><sup class="allergen">F</sup><sup class="allergen">H</sup></span>
+                        <span class="price">18,00 €</span>
+                        <span class="desc">Tempura Shrimps, Gemüse, Sesam, Teriyaki-Soße (lauwarm)</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="menu-col">
+                <h4>Gebratenes | fried</h4>
+                <ul class="menu-lines">
+                    <li data-number="40">
+                        <span>Gebratene Nudeln oder Reis<sup class="allergen">A (nur bei Nudeln)</sup></span>
+                        <span class="price">—</span>
+                        <span class="desc">Basisgericht – wählen Sie Ihre Beilage</span>
+                    </li>
+                    <li class="variant"><span>mit Gemüse</span><span class="price">11,00 €</span></li>
+                    <li class="variant"><span>mit Rindfleisch</span><span class="price">17,00 €</span></li>
+                    <li class="variant"><span>mit Garnelen</span><span class="price">16,00 €</span></li>
+                    <li class="variant"><span>mit knuspriger Ente</span><span class="price">17,00 €</span></li>
+                    <li class="variant"><span>mit gegrilltem Hühnerfilet</span><span class="price">15,00 €</span></li>
+                    <li class="variant"><span>mit knusprigem Hähnchen</span><span class="price">15,00 €</span></li>
+                    <li class="variant"><span>mit Hühnerfilet</span><span class="price">14,00 €</span></li>
+                    <li data-number="41">
+                        <span>Extras</span>
+                        <span class="price">—</span>
+                        <span class="desc">Zum Dippen & Verfeinern</span>
+                    </li>
+                    <li class="variant"><span>Süß-Sauer-Soße</span><span class="price">3,00 €</span></li>
+                    <li class="variant"><span>Erdnusssoße</span><span class="price">3,00 €</span></li>
+                    <li data-number="42">
+                        <span>Teriyaki Lachsfilet – mit Ei-Nudeln<sup class="allergen">A</sup><sup class="allergen">F</sup><sup class="allergen">G</sup></span>
+                        <span class="price">21,00 €</span>
+                        <span class="desc">gebratene Ei-Nudeln, Gemüse, Teriyaki-Soße</span>
+                    </li>
+                    <li data-number="43">
+                        <span>Teriyaki Lachsfilet – mit Reis<sup class="allergen">F</sup><sup class="allergen">G</sup></span>
+                        <span class="price">21,00 €</span>
+                        <span class="desc">Reis, Gemüse, Teriyaki-Soße</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="menu-col">
+                <h4>Koya Spezial</h4>
+                <ul class="menu-lines">
+                    <li data-number="45">
+                        <span>Phở</span>
+                        <span class="price">—</span>
+                        <span class="desc">Reisbandnudelsuppe mit Zwiebeln, Lauch, Sojasprossen, frischem Koriander</span>
+                    </li>
+                    <li class="variant"><span>mit Hühnerfleisch</span><span class="price">15,00 €</span></li>
+                    <li class="variant"><span>mit Rindfleisch</span><span class="price">17,00 €</span></li>
+                    <li data-number="46">
+                        <span>Miến Trộn<sup class="allergen">C</sup><sup class="allergen">D</sup></span>
+                        <span class="price">—</span>
+                        <span class="desc">Glasnudeln mit Gemüse & frischen Kräutern in hausgemachter Soße</span>
+                    </li>
+                    <li class="variant"><span>mit Hühnerfleisch</span><span class="price">15,00 €</span></li>
+                    <li class="variant"><span>mit Rindfleisch</span><span class="price">17,00 €</span></li>
+                    <li class="variant"><span>mit Garnelen</span><span class="price">17,00 €</span></li>
+                    <li data-number="47">
+                        <span>Phở Trộn<sup class="allergen">C</sup></span>
+                        <span class="price">—</span>
+                        <span class="desc">Reisbandnudeln mit Gemüse & frischen Kräutern in hausgemachter Soße</span>
+                    </li>
+                    <li class="variant"><span>mit Hühnerfleisch</span><span class="price">15,00 €</span></li>
+                    <li class="variant"><span>mit Rindfleisch</span><span class="price">17,00 €</span></li>
+                    <li class="variant"><span>mit Garnelen</span><span class="price">17,00 €</span></li>
+                    <li class="variant"><span>mit knuspriger Ente</span><span class="price">18,00 €</span></li>
+                    <li data-number="48">
+                        <span>Bún Thịt Nướng (lauwarm)<sup class="allergen">C</sup><sup class="allergen">G</sup></span>
+                        <span class="price">19,00 €</span>
+                        <span class="desc">Reisfadennudeln, gegrilltes Schweinefleisch, Frühlingsrolle, frische Kräuter, gemahlene Erdnüsse, verfeinerte Fischsoße</span>
+                    </li>
+                    <li data-number="49">
+                        <span>Hủ Tiếu Xào<sup class="allergen">C</sup><sup class="allergen">D</sup><sup class="allergen">H</sup><sup class="allergen">N</sup></span>
+                        <span class="price">19,00 €</span>
+                        <span class="desc">gebratene Reisbandnudeln • Garnelen, Tintenfisch, Rindfleisch, Sojasprossen, Karotten, Koriander, Paprika, Zwiebeln, gemahlene Erdnüsse</span>
+                    </li>
+                    <li data-number="50">
+                        <span>Bún Bò Xào (lauwarm)<sup class="allergen">C</sup><sup class="allergen">G</sup></span>
+                        <span class="price">19,00 €</span>
+                        <span class="desc">angebratenes Rindfleisch auf Reisfadennudeln, Frühlingsrolle, Salat, Sojasprossen, frische Kräuter, gemahlene Erdnüsse, verfeinerte Fischsoße</span>
+                    </li>
+                    <li data-number="55">
+                        <span>KOYA KIDS Mini Chicken mit Reis<sup class="allergen">A</sup></span>
+                        <span class="price">10,00 €</span>
+                        <span class="desc">Reis mit Gemüse & Huhn • gekochter Reis, gegrilltes Hühnerfleisch, Paprika, Karotten, Gurke</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="menu-col">
+                <h4>Dessert</h4>
+                <ul class="menu-lines">
+                    <li data-number="63"><span>Mochi (3 Stück)</span><span class="price">4,90 €</span><span class="desc">verschiedene Sorten</span></li>
+                    <li data-number="66"><span>Cocos-Eis<sup class="allergen">B</sup></span><span class="price">7,90 €</span></li>
+                    <li data-number="67"><span>Ananas Sorbet</span><span class="price">7,90 €</span></li>
+                    <li data-number="68"><span>Cheese Cake Eis<sup class="allergen">B</sup></span><span class="price">7,90 €</span></li>
+                    <li data-number="69"><span>Karamell Eis<sup class="allergen">B</sup></span><span class="price">7,90 €</span></li>
+                </ul>
+
+                <h4>Getränke – Softdrinks (0,33 L)</h4>
+                <ul class="menu-lines">
+                    <li class="no-number"><span>Cola / Cola Light / Cola Zero</span><span class="price">3,00 €</span></li>
+                    <li class="no-number"><span>Fanta / Sprite / Mezzo Mix</span><span class="price">3,00 €</span></li>
+                    <li class="no-number"><span>Bluna Orange / Zitrone</span><span class="price">3,00 €</span></li>
+                    <li class="no-number"><span>Rhodius Apfelschorle</span><span class="price">3,00 €</span></li>
+                    <li class="no-number"><span>Fuze Tea Pfirsich/Zitrone (0,30L)</span><span class="price">3,00 €</span></li>
+                    <li class="no-number"><span>Bionade (Ingwer-Orange/Holunder/Litschi)</span><span class="price">3,00 €</span></li>
+                    <li class="no-number"><span>Selters Naturell/Medium (0,25L)</span><span class="price">3,00 €</span></li>
+                </ul>
+
+                <h4>Bier (0,33 L Flasche)</h4>
+                <ul class="menu-lines">
+                    <li class="no-number"><span>Krombacher Pils / Alkoholfrei</span><span class="price">3,00 €</span></li>
+                    <li class="no-number"><span>Tiger (Singapur)</span><span class="price">4,00 €</span></li>
+                    <li class="no-number"><span>Saigon (Vietnam)</span><span class="price">4,00 €</span></li>
+                    <li class="no-number"><span>Singha (Thailand)</span><span class="price">4,00 €</span></li>
+                    <li class="no-number"><span>Tsingtao / Snow (China)</span><span class="price">4,00 €</span></li>
+                    <li class="no-number"><span>Asahi / Kirin / Sapporo (Japan)</span><span class="price">4,00 €</span></li>
+                    <li class="no-number"><span>Taiwan Beer</span><span class="price">4,00 €</span></li>
+                </ul>
+
+                <h4>Tee & Kaffee</h4>
+                <ul class="menu-lines">
+                    <li class="no-number"><span>Jasmin/Grüner Tee (Kanne 1 Pers.)</span><span class="price">5,50 €</span></li>
+                    <li class="no-number"><span>Frische Minz/Ingwer Tee (Tasse)</span><span class="price">3,90 €</span></li>
+                    <li class="no-number"><span>Kaffee / Espresso Doppio</span><span class="price">3,00 €</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="menu-legend">
+            <ul class="legend-list">
+                <li><span class="badge badge-vegan"><img src="material/vegan.svg" alt="" class="badge-icon"></span><span>vegan</span></li>
+                <li><span class="badge badge-spicy"><img src="material/chilli.svg" alt="" class="badge-icon"></span><span>scharf</span></li>
+                <li><span class="badge badge-spicy"><img src="material/chilli.svg" alt="" class="badge-icon"><img src="material/chilli.svg" alt="" class="badge-icon"></span><span>sehr scharf</span></li>
+            </ul>
+            <div class="legend-line"></div>
+            <p class="legend-note">In allen Gerichten können Geschmacksverstärker enthalten sein.</p>
+            <ul class="legend-allergens">
+                <li><span class="pill">A</span> Gluten/Weizen</li>
+                <li><span class="pill">B</span> Milch & Laktose</li>
+                <li><span class="pill">C</span> Erdnüsse</li>
+                <li><span class="pill">D</span> Sesam</li>
+                <li><span class="pill">E</span> Sellerie</li>
+                <li><span class="pill">F</span> Soja</li>
+                <li><span class="pill">G</span> Fisch</li>
+                <li><span class="pill">H</span> Krebstiere</li>
+                <li><span class="pill">8</span> Kokosmilch</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Kirschblüten erstellen
+        function createCherryBlossoms() {
+            const cherryLayer = document.getElementById('cherryLayer');
+            for (let i = 0; i < 15; i++) {
+                const cherry = document.createElement('div');
+                cherry.className = 'cherry-blossom';
+                cherry.style.left = Math.random() * 100 + '%';
+                cherry.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                cherry.style.animationDelay = Math.random() * 5 + 's';
+                cherryLayer.appendChild(cherry);
+            }
+        }
+        createCherryBlossoms();
+    </script>
+</body>
+</html>
