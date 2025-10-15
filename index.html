@@ -15,7 +15,7 @@
     <nav id="navbar">
     <div class="nav-container">
         <a href="#home" class="logo" aria-label="KOYA Startseite">
-            <img src="material/koya_logo_weiß_weniger_blumen2.png" alt="" class="logo-img">
+            <img src="material/koya_logo_weiss_weniger_blumen2.png" alt="" class="logo-img">
         </a>
         
         <button class="mobile-menu-toggle" id="mobileMenuBtn" aria-label="Menü öffnen">
@@ -1009,6 +1009,46 @@ document.addEventListener('DOMContentLoaded', function() {
         console.error('Mobile Menu Elemente nicht gefunden!');
     }
 });
+</script>
+<script>
+// Fix für Anker-Navigation von anderen Seiten
+(function() {
+    // Prüfe ob ein Hash in der URL ist
+    if (window.location.hash) {
+        // Deaktiviere Animationen beim initialen Laden
+        const style = document.createElement('style');
+        style.id = 'no-animation-on-load';
+        style.textContent = `
+            .asian-card, .menu-item, .gallery-item, .contact-card {
+                opacity: 1 !important;
+                transform: translateY(0) !important;
+                transition: none !important;
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Nach dem Laden: Scrolle zur richtigen Position
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                const target = document.querySelector(window.location.hash);
+                if (target) {
+                    const navbarHeight = document.getElementById('navbar').offsetHeight;
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navbarHeight - 20;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Nach dem Scroll: Animationen wieder aktivieren
+                    setTimeout(function() {
+                        document.getElementById('no-animation-on-load').remove();
+                    }, 500);
+                }
+            }, 100);
+        });
+    }
+})();
 </script>
 </body>
 </html>

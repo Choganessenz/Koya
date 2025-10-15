@@ -14,27 +14,32 @@
 
     <!-- Navigation identisch mit index.html -->
     <nav id="navbar">
-        <div class="nav-container">
-            <a href="index.html#home" class="logo" aria-label="KOYA Startseite">
-                <img src="material/k_logo_test.png" alt="" class="logo-img">
-            </a>              
-            <ul class="nav-links">
-                <li><a href="index.html#home">Home</a></li>
-                <li><a href="index.html#about">Über uns</a></li>
-                <li><a href="index.html#menu">Speisen</a></li>
-                <li><a href="index.html#gallery">Galerie</a></li>
-                <li><a href="index.html#contact">Kontakt</a></li>
-            </ul>
-            <a href="tel:+4952546622880"
-                class="nav-call"
-                aria-label="Jetzt bei KOYA anrufen"
-                title="Anrufen: +49 5254 6622 880">
-                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.05-.24c1.12.37 2.33.57 3.54.57a1 1 0 011 1v3.5a1 1 0 01-1 1C10.4 21 3 13.6 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.21.2 2.42.57 3.54a1 1 0 01-.24 1.05l-2.2 2.2z" fill="currentColor"/>
-                </svg>
-                <span class="label">Anrufen</span>
-            </a>
-        </div>
+    <div class="nav-container">
+        <a href="#home" class="logo" aria-label="KOYA Startseite">
+            <img src="material/koya_logo_weiß_weniger_blumen2.png" alt="" class="logo-img">
+        </a>
+        
+        <button class="mobile-menu-toggle" id="mobileMenuBtn" aria-label="Menü öffnen">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/index.html#home">Home</a></li>
+            <li><a href="/index.html#about">Über uns</a></li>
+            <li><a href="/index.html#menu">Speisen</a></li>
+            <li><a href="/index.html#gallery">Galerie</a></li>
+            <li><a href="/index.html#contact">Kontakt</a></li>
+        </ul>
+        
+        <a href="tel:+4952546622880" class="nav-call" aria-label="Jetzt bei KOYA anrufen">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.05-.24c1.12.37 2.33.57 3.54.57a1 1 0 011 1v3.5a1 1 0 01-1 1C10.4 21 3 13.6 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.21.2 2.42.57 3.54a1 1 0 01-.24 1.05l-2.2 2.2z" fill="currentColor"/>
+            </svg>
+            <span class="label">Anrufen</span>
+        </a>
+    </div>
     </nav>
 
     <!-- Hero Section für Datenschutz -->
@@ -510,5 +515,49 @@
             });
         })();
     </script>
+    <script>
+console.log('Mobile Menu Script lädt...');
+
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinks');
+    
+    console.log('Mobile Button:', mobileBtn);
+    console.log('Nav Links:', navLinks);
+    
+    if (mobileBtn && navLinks) {
+        mobileBtn.addEventListener('click', function() {
+            console.log('Button geklickt!');
+            navLinks.classList.toggle('active');
+            mobileBtn.classList.toggle('active');
+            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+        });
+        
+        // Close menu on link click
+        navLinks.querySelectorAll('a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                navLinks.classList.remove('active');
+                mobileBtn.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+        
+        // Close on outside click
+        document.addEventListener('click', function(e) {
+            if (!navLinks.contains(e.target) && !mobileBtn.contains(e.target)) {
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    mobileBtn.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            }
+        });
+        
+        console.log('Mobile Menu bereit!');
+    } else {
+        console.error('Mobile Menu Elemente nicht gefunden!');
+    }
+});
+</script>
 </body>
 </html>
