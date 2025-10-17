@@ -417,6 +417,7 @@ nav.scrolled {
 
 .hero h1 {
     font-size: 5rem;
+    padding-top: 30px;
     margin-bottom: 20px;
     color: #d4af37;
     text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
