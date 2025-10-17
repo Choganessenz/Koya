@@ -903,8 +903,8 @@
         });
 
         const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+            threshold: 0.01,           // Niedriger = triggert früher
+            rootMargin: '200px 0px'    // Großer Margin = erkennt früher
         };
 
         const observer = new IntersectionObserver((entries) => {
@@ -917,10 +917,19 @@
         }, observerOptions);
 
         document.querySelectorAll('.asian-card, .menu-item, .gallery-item, .contact-card').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'all 0.8s ease';
-            observer.observe(el);
+            const height = el.offsetHeight;
+            
+            // Sehr große Elemente (Speisekarte) sofort anzeigen
+            if (height > 1500 || el.classList.contains('menu-full')) {
+                el.style.opacity = '1';
+                el.style.transform = 'translateY(0)';
+            } else {
+                // Kleine Elemente animieren
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'all 0.8s ease';
+                observer.observe(el);
+            }
         });
 
         document.querySelectorAll('a[href^="tel:"]').forEach(tel => {
